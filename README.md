@@ -1,1 +1,1 @@
-# DjangoOptimization
+This repository created for course base Django
