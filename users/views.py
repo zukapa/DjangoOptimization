@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 from baskets.models import Basket
+from baskets.models import User
 
 
 def login(request):
@@ -27,9 +28,13 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Регистрация прошла успешно!')
-            return HttpResponseRedirect(reverse('users:login'))
+            save = form.save()
+            if save[0] == 1:
+                messages.success(request, 'Сообщение подтверждения пользователя отправлено')
+                return HttpResponseRedirect(reverse('users:login'))
+            else:
+                messages.success(request, 'Ошибка отправки подтверждения пользователя')
+                return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()
     context = {'title': 'GeekShop - Регистрация', 'form': form}
@@ -56,3 +61,20 @@ def profile(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def commit(request, email=None, activation_key=None):
+    try:
+        user = User.objects.get(email=email)
+        if user.activation_key == activation_key and not user.is_activation_key_expired():
+            user.is_active = True
+            user.save()
+            auth.login(request, user)
+            messages.success(request, f'Активация для пользователя {user} пройдена.')
+            return render(request, 'users/commit.html')
+        else:
+            messages.success(request, f'Активация для пользователя {user} не пройдена.')
+            return render(request, 'users/commit.html')
+    except Exception as e:
+        messages.success(request, f'Активация не пройдена: {e.args}')
+        return render(request, 'users/commit.html')
