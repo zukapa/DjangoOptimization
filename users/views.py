@@ -3,9 +3,10 @@ from django.contrib import auth, messages
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
-from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
+from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm, UserProfileFormTwo
 from baskets.models import Basket
 from baskets.models import User
+from django.db import transaction
 
 
 def login(request):
@@ -41,20 +42,24 @@ def register(request):
     return render(request, 'users/register.html', context)
 
 
+@transaction.atomic
 @login_required
 def profile(request):
     user = request.user
     if request.method == 'POST':
         form = UserProfileForm(data=request.POST, files=request.FILES, instance=user)
-        if form.is_valid():
+        form_two = UserProfileFormTwo(data=request.POST, instance=user.userprofile)
+        if form.is_valid() and form_two.is_valid():
             form.save()
-            messages.success(request, 'Изменения сохранены!')
             return HttpResponseRedirect(reverse('users:profile'))
     else:
         form = UserProfileForm(instance=user)
-    context = {'title': 'GeekShop - Личный кабинет',
+        form_two = UserProfileFormTwo(instance=user.userprofile)
+    context = {'title': 'Geekshop - личный кабинет',
                'form': form,
-               'baskets': Basket.objects.filter(user=user)}
+               'form_two': form_two,
+               'baskets': Basket.objects.filter(user=user)
+               }
     return render(request, 'users/profile.html', context)
 
 
@@ -69,7 +74,7 @@ def commit(request, email=None, activation_key=None):
         if user.activation_key == activation_key and not user.is_activation_key_expired():
             user.is_active = True
             user.save()
-            auth.login(request, user)
+            auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             messages.success(request, f'Активация для пользователя {user} пройдена.')
             return render(request, 'users/commit.html')
         else:
@@ -78,3 +83,4 @@ def commit(request, email=None, activation_key=None):
     except Exception as e:
         messages.success(request, f'Активация не пройдена: {e.args}')
         return render(request, 'users/commit.html')
+
