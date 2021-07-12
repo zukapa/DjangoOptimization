@@ -19,17 +19,17 @@ class UserLoginForm(AuthenticationForm):
 
 
 class UserRegisterForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4',
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',
                                                              'placeholder': 'Введите имя пользователя'}))
-    email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'form-control py-4',
+    email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'form-control',
                                                            'placeholder': 'Введите адрес эл. почты'}))
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4',
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',
                                                                'placeholder': 'Введите имя'}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4',
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',
                                                               'placeholder': 'Введите фамилию'}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control py-4',
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control',
                                                                   'placeholder': 'Введите пароль'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control py-4',
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control',
                                                                   'placeholder': 'Подтвердите пароль'}))
 
     class Meta:
@@ -45,11 +45,11 @@ class UserRegisterForm(UserCreationForm):
 
 
 class UserProfileForm(UserChangeForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4', 'readonly': True}))
-    email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'form-control py-4', 'readonly': True}))
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control py-4'}))
-    image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'custom-file-input'}), required=False)
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': True}))
+    email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'form-control', 'readonly': True}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control'}), required=False)
 
     class Meta:
         model = User
@@ -58,11 +58,11 @@ class UserProfileForm(UserChangeForm):
 
 class UserProfileFormTwo(UserChangeForm):
     tagline = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control py-4'}))
+        'class': 'form-control'}))
     about_me = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control py-4'}))
+        'class': 'form-control'}))
     gender = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control py-4'}))
+        'class': 'form-control'}))
 
     class Meta:
         model = UserProfile
