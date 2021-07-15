@@ -34,7 +34,18 @@ window.onload = function () {
             orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
         }
     });
-
+    $('.basket_list').on('click', 'input[type="number"]', function () {
+        var t_href = event.target;
+        console.log(t_href.name);
+        console.log(t_href.value);
+        $.ajax({
+            url: '/baskets/edit/' + t_href.name + '/' + t_href.value + '/',
+            success: function (data) {
+                $('.basket_list').html(data.result);
+            }
+        });
+        event.preventDefault();
+    })
     function deleteOrderItem(row) {
         let target_name = row[0].querySelector('input[type="number"]').name;
         orderitem_num = parseInt(target_name.replace('order_items-', '').replace('-quantity', ''));
