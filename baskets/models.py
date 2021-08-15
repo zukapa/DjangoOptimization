@@ -20,6 +20,10 @@ class Basket(models.Model):
         baskets = Basket.objects.filter(user=self.user)
         return sum(basket.quantity for basket in baskets)
 
+    @staticmethod
+    def get_item(pk):
+        return Basket.objects.get(id=pk)
+
     def total_sum(self):
         baskets = Basket.objects.filter(user=self.user)
         return sum(basket.sum() for basket in baskets)
