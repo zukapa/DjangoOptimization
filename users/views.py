@@ -47,8 +47,8 @@ def register(request):
 def profile(request):
     user = request.user
     if request.method == 'POST':
-        form = UserProfileForm(data=request.POST, files=request.FILES, instance=user)
-        form_two = UserProfileFormTwo(data=request.POST, instance=user.userprofile)
+        form = UserProfileForm(data=request.POST, files=request.FILES, instance=user).select_related()
+        form_two = UserProfileFormTwo(data=request.POST, instance=user.userprofile).select_related()
         if form.is_valid() and form_two.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:profile'))
@@ -58,7 +58,7 @@ def profile(request):
     context = {'title': 'Geekshop - личный кабинет',
                'form': form,
                'form_two': form_two,
-               'baskets': Basket.objects.filter(user=user)
+               'baskets': Basket.objects.filter(user=user).select_related()
                }
     return render(request, 'users/profile.html', context)
 

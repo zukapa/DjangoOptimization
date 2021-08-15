@@ -22,8 +22,8 @@ class Basket(models.Model):
 
     @staticmethod
     def get_item(pk):
-        return Basket.objects.get(id=pk)
+        return Basket.objects.get(id=pk).select_related()
 
     def total_sum(self):
-        baskets = Basket.objects.filter(user=self.user)
+        baskets = Basket.objects.filter(user=self.user).select_related()
         return sum(basket.sum() for basket in baskets)
