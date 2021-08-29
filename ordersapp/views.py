@@ -52,7 +52,7 @@ class OrderCreate(CreateView):
             if order_items.is_valid():
                 order_items.instance = self.object
                 order_items.save()
-        if self.object.get_total_cost() == 0:
+        if self.object.get_sum() == 0:
             self.object.delete()
         return super(OrderCreate, self).form_valid(form)
 
@@ -83,7 +83,7 @@ class OrderUpdate(UpdateView):
             if order_items.is_valid():
                 order_items.instance = self.object
                 order_items.save()
-        if self.object.get_total_cost() == 0:
+        if self.object.get_sum() == 0:
             self.object.delete()
         return super(OrderUpdate, self).form_valid(form)
 

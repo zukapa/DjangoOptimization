@@ -4,14 +4,23 @@ from django.contrib.auth.decorators import user_passes_test
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.utils.decorators import method_decorator
-
+from django.conf import settings
+from django.core.cache import cache
 from users.models import User
 from admins.forms import UserAdminRegisterForm, UserAdminProfileForm
 
 
 @user_passes_test(lambda u: u.is_superuser)
 def index(request):
-    return render(request, 'admins/admin.html')
+    if settings.LOW_CACHE:      # After applying memcached, the page loads in 0 milliseconds, before - 26 milliseconds
+        key = 'index_admins'
+        index_admins = cache.get(key)
+        if index_admins is None:
+            index_admins = render(request, 'admins/admin.html')
+            cache.set(key, index_admins)
+        return index_admins
+    else:
+        return render(request, 'admins/admin.html')
 
 
 class UserListView(ListView):
