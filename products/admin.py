@@ -12,6 +12,3 @@ class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ('desc',)
     ordering = ('name',)
     search_fields = ('name',)
-
-
-
