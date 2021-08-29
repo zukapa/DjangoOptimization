@@ -1,0 +1,86 @@
+http://84.201.177.65/	products.views.index	index
+http://84.201.177.65/admin-staff/	admins.views.index	admins:index
+http://84.201.177.65/admin-staff/users/	admins.views.UserListView	admins:admin_users
+http://84.201.177.65/admin-staff/users/create/	admins.views.UserCreateView	admins:admin_users_create
+http://84.201.177.65/admin-staff/users/delete/<int:pk>	admins.views.UserDeleteView	admins:admin_users_delete
+http://84.201.177.65/admin-staff/users/update/<int:pk>	admins.views.UserUpdateView	admins:admin_users_update
+http://84.201.177.65/admin/	django.contrib.admin.sites.index	admin:index
+http://84.201.177.65/admin/<app_label>/	django.contrib.admin.sites.app_index	admin:app_list
+http://84.201.177.65/admin/<url>	django.contrib.admin.sites.catch_all_view
+http://84.201.177.65/admin/auth/group/	django.contrib.admin.options.changelist_view	admin:auth_group_changelist
+http://84.201.177.65/admin/auth/group/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/auth/group/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:auth_group_change
+http://84.201.177.65/admin/auth/group/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:auth_group_delete
+http://84.201.177.65/admin/auth/group/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:auth_group_history
+http://84.201.177.65/admin/auth/group/add/	django.contrib.admin.options.add_view	admin:auth_group_add
+http://84.201.177.65/admin/autocomplete/	django.contrib.admin.sites.autocomplete_view	admin:autocomplete
+http://84.201.177.65/admin/jsi18n/	django.contrib.admin.sites.i18n_javascript	admin:jsi18n
+http://84.201.177.65/admin/login/	django.contrib.admin.sites.login	admin:login
+http://84.201.177.65/admin/logout/	django.contrib.admin.sites.logout	admin:logout
+http://84.201.177.65/admin/ordersapp/order/	django.contrib.admin.options.changelist_view	admin:ordersapp_order_changelist
+http://84.201.177.65/admin/ordersapp/order/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/ordersapp/order/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:ordersapp_order_change
+http://84.201.177.65/admin/ordersapp/order/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:ordersapp_order_delete
+http://84.201.177.65/admin/ordersapp/order/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:ordersapp_order_history
+http://84.201.177.65/admin/ordersapp/order/add/	django.contrib.admin.options.add_view	admin:ordersapp_order_add
+http://84.201.177.65/admin/password_change/	django.contrib.admin.sites.password_change	admin:password_change
+http://84.201.177.65/admin/password_change/done/	django.contrib.admin.sites.password_change_done	admin:password_change_done
+http://84.201.177.65/admin/products/product/	django.contrib.admin.options.changelist_view	admin:products_product_changelist
+http://84.201.177.65/admin/products/product/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/products/product/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:products_product_change
+http://84.201.177.65/admin/products/product/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:products_product_delete
+http://84.201.177.65/admin/products/product/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:products_product_history
+http://84.201.177.65/admin/products/product/add/	django.contrib.admin.options.add_view	admin:products_product_add
+http://84.201.177.65/admin/products/productcategory/	django.contrib.admin.options.changelist_view	admin:products_productcategory_changelist
+http://84.201.177.65/admin/products/productcategory/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/products/productcategory/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:products_productcategory_change
+http://84.201.177.65/admin/products/productcategory/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:products_productcategory_delete
+http://84.201.177.65/admin/products/productcategory/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:products_productcategory_history
+http://84.201.177.65/admin/products/productcategory/add/	django.contrib.admin.options.add_view	admin:products_productcategory_add
+http://84.201.177.65/admin/r/<int:content_type_id>/<path:object_id>/	django.contrib.contenttypes.views.shortcut	admin:view_on_site
+http://84.201.177.65/admin/social_django/association/	django.contrib.admin.options.changelist_view	admin:social_django_association_changelist
+http://84.201.177.65/admin/social_django/association/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/social_django/association/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:social_django_association_change
+http://84.201.177.65/admin/social_django/association/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:social_django_association_delete
+http://84.201.177.65/admin/social_django/association/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:social_django_association_history
+http://84.201.177.65/admin/social_django/association/add/	django.contrib.admin.options.add_view	admin:social_django_association_add
+http://84.201.177.65/admin/social_django/nonce/	django.contrib.admin.options.changelist_view	admin:social_django_nonce_changelist
+http://84.201.177.65/admin/social_django/nonce/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/social_django/nonce/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:social_django_nonce_change
+http://84.201.177.65/admin/social_django/nonce/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:social_django_nonce_delete
+http://84.201.177.65/admin/social_django/nonce/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:social_django_nonce_history
+http://84.201.177.65/admin/social_django/nonce/add/	django.contrib.admin.options.add_view	admin:social_django_nonce_add
+http://84.201.177.65/admin/social_django/usersocialauth/	django.contrib.admin.options.changelist_view	admin:social_django_usersocialauth_changelist
+http://84.201.177.65/admin/social_django/usersocialauth/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/social_django/usersocialauth/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:social_django_usersocialauth_change
+http://84.201.177.65/admin/social_django/usersocialauth/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:social_django_usersocialauth_delete
+http://84.201.177.65/admin/social_django/usersocialauth/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:social_django_usersocialauth_history
+http://84.201.177.65/admin/social_django/usersocialauth/add/	django.contrib.admin.options.add_view	admin:social_django_usersocialauth_add
+http://84.201.177.65/admin/users/user/	django.contrib.admin.options.changelist_view	admin:users_user_changelist
+http://84.201.177.65/admin/users/user/<path:object_id>/	django.views.generic.base.RedirectView
+http://84.201.177.65/admin/users/user/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:users_user_change
+http://84.201.177.65/admin/users/user/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:users_user_delete
+http://84.201.177.65/admin/users/user/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:users_user_history
+http://84.201.177.65/admin/users/user/add/	django.contrib.admin.options.add_view	admin:users_user_add
+http://84.201.177.65/baskets/add/<int:product_id>	baskets.views.basket_add	baskets:basket_add
+http://84.201.177.65/baskets/edit/<int:id>/<int:quantity>/	baskets.views.basket_edit	baskets:basket_edit
+http://84.201.177.65/baskets/remove/<int:id>	baskets.views.basket_remove	baskets:basket_remove
+http://84.201.177.65/complete/<backend>/	social_django.views.complete	social:complete
+http://84.201.177.65/disconnect/<backend>/	social_django.views.disconnect	social:disconnect
+http://84.201.177.65/disconnect/<backend>/<association_id>/	social_django.views.disconnect	social:disconnect_individual
+http://84.201.177.65/login/<backend>/	social_django.views.auth	social:begin
+http://84.201.177.65/media/<path>	django.views.static.serve
+http://84.201.177.65/order/	ordersapp.views.OrderList	order:order_list
+http://84.201.177.65/order/create/	ordersapp.views.OrderCreate	order:create
+http://84.201.177.65/order/delete/<int:pk>/	ordersapp.views.OrderDelete	order:delete
+http://84.201.177.65/order/read/<int:pk>/	ordersapp.views.OrderRead	order:read
+http://84.201.177.65/order/status_change/<int:pk>/	ordersapp.views.change_status	order:status_change
+http://84.201.177.65/order/update/<int:pk>/	ordersapp.views.OrderUpdate	order:update
+http://84.201.177.65/products/	products.views.products	products:index
+http://84.201.177.65/products/<int:category_id>/	products.views.products	products:product
+http://84.201.177.65/products/page/<int:page>/	products.views.products	products:page
+http://84.201.177.65/users/commit/<str:email>/<str:activation_key>/	users.views.commit	users:commit
+http://84.201.177.65/users/login/	users.views.login	users:login
+http://84.201.177.65/users/logout/	users.views.logout	users:logout
+http://84.201.177.65/users/profile/	users.views.profile	users:profile
+http://84.201.177.65/users/register/	users.views.register	users:register
